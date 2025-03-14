@@ -1,6 +1,15 @@
 <h2>Product List</h2>
 <ul>
   <li *ngFor="let product of products">
-    {{ product.name }} - {{ product.price }}
+    <span *ngIf="!product.editing">{{ product.name }} - {{ product.price }}</span>
+
+    <!-- Edit Mode -->
+    <input *ngIf="product.editing" [(ngModel)]="product.name" placeholder="Product Name">
+    <input *ngIf="product.editing" [(ngModel)]="product.price" placeholder="Product Price">
+
+    <button (click)="editProduct(product)" *ngIf="!product.editing">✏ Edit</button>
+    <button (click)="updateProduct(product)" *ngIf="product.editing">💾 Save</button>
+    <button (click)="cancelEdit(product)" *ngIf="product.editing">❌ Cancel</button>
+    <button (click)="deleteProduct(product.id)">🗑 Delete</button>
   </li>
 </ul>
