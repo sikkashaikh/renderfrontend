@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../services/product.service';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router'; // ✅ Import this
 
 @Component({
   selector: 'app-product-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './product-list.component.html',
 })
 export class ProductListComponent implements OnInit {

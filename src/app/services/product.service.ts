@@ -5,11 +5,16 @@ import axios from 'axios';
   providedIn: 'root' // This makes Angular automatically provide this service
 })
 export class ProductService {
-  private apiUrl = 'https://renderbackend-jg46.onrender.com/products'; // Server
-  //private apiUrl = 'http://localhost:5000/products'; //Local
+  //private apiUrl = 'https://renderbackend-jg46.onrender.com/products'; // Server
+  private apiUrl = 'http://localhost:5000/products'; //Local
 
   async getProducts() {
     const response = await axios.get(this.apiUrl);
+    return response.data;
+  }
+
+  async getProductById(id: string) {
+    const response = await axios.get(`${this.apiUrl}/${id}`);
     return response.data;
   }
 

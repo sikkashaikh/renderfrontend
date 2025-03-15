@@ -1,0 +1,11 @@
+<h2>Edit Product</h2>
+<form (submit)="updateProduct()">
+  <label>Name:</label>
+  <input [(ngModel)]="product.name" name="name" required>
+
+  <label>Price:</label>
+  <input  [(ngModel)]="product.price" name="price" required>
+
+  <button type="submit">💾 Save</button>
+  <button (click)="router.navigate(['/'])">❌ Cancel</button>
+</form>
