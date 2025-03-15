@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root' // This makes Angular automatically provide this service
 })
 export class ProductService {
-  //private apiUrl = 'https://renderbackend-jg46.onrender.com/products'; // Server
-  private apiUrl = 'http://localhost:5000/products'; //Local
+  private apiUrl = environment.apiUrl;
 
   async getProducts() {
     const response = await axios.get(this.apiUrl);
